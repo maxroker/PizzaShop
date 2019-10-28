@@ -11,7 +11,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
   		t.boolean :is_best_offer
   		t.string :path_to_photo
 
-
   		t.timestamps
   	end
 
