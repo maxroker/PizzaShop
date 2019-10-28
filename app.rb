@@ -8,7 +8,7 @@ require 'sinatra/activerecord'
 
 set :database_file, 'config/database.yml'
 
-class Client < ActiveRecord::Base
+class Product < ActiveRecord::Base
 
 end
 
