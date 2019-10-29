@@ -1,0 +1,12 @@
+<table style="width:50%">
+  <tr>
+    <th>Pizza</th>
+    <td>Quantity</td>
+  </tr>
+	<% @orders.each do |order| %>
+		<tr>
+			<td><%= order.split('=')[0] %></td>
+			<td><%= order.split('=')[1] %></td>
+		<tr>
+	<% end %> 
+</table>

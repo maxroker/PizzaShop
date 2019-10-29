@@ -31,5 +31,6 @@ get '/about' do
 end
 
 post '/cart' do
-	erb "hello"
+	@orders = params[:orders].split(',')
+	erb :cart
 end
