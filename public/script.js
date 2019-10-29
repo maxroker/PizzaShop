@@ -70,3 +70,9 @@ const clearCart = () => {
 	updateOrdersInput();
 	updateOrdersButton();
 }
+
+
+$(function() { 
+			updateOrdersInput();
+			updateOrdersButton();
+		});
