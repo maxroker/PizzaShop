@@ -4,21 +4,23 @@
 	<% @products.each do |product| %>
 		<div class="col-md-4">
 			<h3><%= product.title %></h3>
-			<img src="<%= product.path_to_photo %>" alt="<%= product.title %>" width="100" >
+			<img src="<%= product.path_to_photo %>" alt="<%= product.title %>" width="100%" >
 			<p><%= product.description %></p>
 			<p><%= product.price %> uha</p>
 			<p><%= product.is_spicy ? 'Be careful it is spicy' : 'Not spicy' %></p>
 			<p><%= product.is_veg ? 'Vegeterian' : 'For animal eaters :)'%></p>
 			<p><%= product.is_best_offer ? 'Best offer !!!' : '' %></p>
-			<button class="btn btn-primary" onClick="hello()" >Click me!</button>
+			<button class="btn btn-success" onClick="addToCart('<%= product.title %>', <%= product.id %>)" >Add to cart</button>
 
 		</div>
 	<% end %>
 <div>
 
+
+
 <div class="row">
 	<div class="col-md-12">
-		
+		<button class="btn btn-primary" onClick="hello()" >Click me!</button>
 	</div>
 <div>
 
