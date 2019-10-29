@@ -32,3 +32,19 @@ const totalPizzaOrder = () => {
 	return total;
 	//console.log(total);
 }
+
+const cartGetOrder = () => {
+	let order = '';
+	for (let key in localStorage) {
+		let value = window.localStorage.getItem(key);
+		if (!key.search('pizza_')) {
+			// console.log(i);
+			//console.log(localStorage.getItem(i));
+
+			// total number of pizzas in a cart
+			order = order + key + '=' + value + ',';
+		}
+	}
+	return order;
+	//console.log(total);
+}
