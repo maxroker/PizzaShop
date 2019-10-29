@@ -12,7 +12,11 @@ const addToCart = (pizza, id) => {
 	pizzaItem += 1;
 	window.localStorage.setItem(pizzaKey, pizzaItem);
 
-	alert(`You added ${pizza} in a cart (${id} id of chosen pizza). You have ${totalPizzaOrder()} pizzas in your cart.`);
+	//Update input fild in nav-bar
+	updateOrdersInput();
+	updateOrdersButton();
+
+	//alert(`You added ${pizza} in a cart (${id} id of chosen pizza). You have ${totalPizzaOrder()} pizzas in your cart.`);
 }
 
 
@@ -47,4 +51,22 @@ const cartGetOrder = () => {
 	}
 	return order;
 	//console.log(total);
+}
+
+
+const updateOrdersInput = () => {
+	let orders = cartGetOrder();
+	$('#orders_input').val(orders);
+}
+
+const updateOrdersButton = () => {
+	let text = 'Cart (' + totalPizzaOrder() + ')';
+	$('#orders_button').val(text);
+}
+
+
+const clearCart = () => {
+	localStorage.clear();
+	updateOrdersInput();
+	updateOrdersButton();
 }
