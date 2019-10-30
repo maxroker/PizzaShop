@@ -19,11 +19,9 @@ end
 
 
 
-
 before do
 
 end
-
 
 
 get '/' do
@@ -34,6 +32,13 @@ end
 get '/about' do
 	erb :about
 end
+
+
+post '/place_order' do
+	@order = Order.create params[:order]
+	erb :order_placed
+end
+
 
 post '/cart' do
 	@orders_input = params[:orders]
