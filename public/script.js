@@ -1,3 +1,6 @@
+
+
+
 const hello = () => {
 	let x = localStorage.getItem('key');
 	x = x * 1 + 1;
@@ -69,6 +72,7 @@ const clearCart = () => {
 	localStorage.clear();
 	updateOrdersInput();
 	updateOrdersButton();
+	// $("p").css("color", "yellow");
 }
 
 
@@ -76,3 +80,21 @@ $(function() {
 			updateOrdersInput();
 			updateOrdersButton();
 		});
+
+// $(document).ready(function(){
+//   $("btn-clear").click(function(){
+//     $("#cart-table").text('Your cart is now empty');
+//   });
+// });
+
+
+
+const clearOrderTable = () => {
+
+	localStorage.clear();
+	updateOrdersInput();
+	updateOrdersButton();
+	// $('#cart-table').text('Your cart is now empty');
+	$("#cart-table").text('Your cart is now empty.');
+	return false;
+}

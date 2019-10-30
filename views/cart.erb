@@ -1,55 +1,62 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Pizza name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-  	<% total_price = 0 %>
-  	<% total_qty = 0 %>
+<div id="cart-table">
 
-  	<% @items.each do |item| %>
+	<table class="table table-striped">
+	  <thead>
 	    <tr>
-	      <td><%= item[0].title %></td>
-	      <td><%= item[0].price %></td>
-	      <td><%= item[1] %></td>
+	      <th scope="col">Pizza name</th>
+	      <th scope="col">Price</th>
+	      <th scope="col">Quantity</th>
 	    </tr>
-	    <% total_price += item[0].price * item[1].to_i %>
-	    <% total_qty += item[1].to_i %>
-    <% end %>
-    <tr>
-	  <td>TOTAL:</td>
-	  <td><%= total_price %> rub</td>
-	  <td><%= total_qty %></td>
-	</tr>
+	  </thead>
+	  <tbody>
+	  	<% total_price = 0 %>
+	  	<% total_qty = 0 %>
 
-    </tbody>
-</table>
+	  	<% @items.each do |item| %>
+		    <tr>
+		      <td><%= item[0].title %></td>
+		      <td><%= item[0].price %></td>
+		      <td><%= item[1] %></td>
+		    </tr>
+		    <% total_price += item[0].price * item[1].to_i %>
+		    <% total_qty += item[1].to_i %>
+	    <% end %>
+	    <tr>
+		  <td>TOTAL:</td>
+		  <td><%= total_price %> rub</td>
+		  <td><%= total_qty %></td>
+		</tr>
 
-<form action="/place_order" method="POST" role="form">
+	    </tbody>
+	</table>
 
-	<div class="form-group">
-		<input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
-	</div>
+	<p>Some text</p>
 
-	<div class="form-group">
-		<input name="order[name]" type="text" class="form-control" placeholder="Your name">
-	</div>
-	<div class="form-group">
-		<input name="order[phone]" type="text" class="form-control" placeholder="Your phone">
-	</div>
-	<div class="form-group">
-		<textarea name="order[address]" type="text" class="form-control" placeholder="Delivery address"></textarea>
-	</div>
+	<form action="/place_order" method="POST" role="form">
 
-	
-	<div class="row">
-		<div class="col-md-12">
-			<button type="submit" class="btn btn-success btn-lg">Place this order!</button>
-			<button class="btn btn-lg btn-danger" onClick="clearCart();return false" >Clear cart</button>
+		<div class="form-group">
+			<input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
 		</div>
-	<div>
 
-</form>
+		<div class="form-group">
+			<input name="order[name]" type="text" class="form-control" placeholder="Your name">
+		</div>
+		<div class="form-group">
+			<input name="order[phone]" type="text" class="form-control" placeholder="Your phone">
+		</div>
+		<div class="form-group">
+			<textarea name="order[address]" type="text" class="form-control" placeholder="Delivery address"></textarea>
+		</div>
+
+		
+		<div class="row">
+			<div class="col-md-12">
+				<button type="submit" class="btn btn-success btn-lg">Place this order!</button>
+				<button class="btn btn-lg btn-danger btn-clear" onClick="clearOrderTable()" >Clear cart</button>
+			</div>
+		<div>
+
+	</form>
+
+</div>
+
