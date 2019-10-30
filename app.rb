@@ -13,6 +13,11 @@ class Product < ActiveRecord::Base
 end
 
 
+class Order < ActiveRecord::Base
+
+end
+
+
 
 
 before do
